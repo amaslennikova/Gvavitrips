@@ -1,21 +1,21 @@
-import java.util.Scanner;
 
 public class Game {
-
-    Scanner scanner = new Scanner(System.in);
-
+    
     Board board = new Board();
 
     Player player1;
     Player player2;
 
     public void run() {
-        definePlayers();
+        UserInteraction userInt = new UserInteraction();
+        int input = userInt.getMenuInput();
+        definePlayers(input);
         boolean gameCompleted = false;
         Player currentPlayer = player1;
         board.printBoard();
 
         while (!gameCompleted) {
+            System.out.println(currentPlayer.name + " please make your turn. Enter a number of cell to place your mark.");
             gameCompleted = currentPlayer.makeTurn(board, currentPlayer);
             if (gameCompleted) {
                 System.out.println(currentPlayer.name + " wins.");
@@ -25,10 +25,9 @@ public class Game {
         }
     }
 
-    private void definePlayers() {
+    public void definePlayers(int input) {
 
         for (int i=0; i<10; i++) {
-            Integer input = getPlayerInt();
             if (input == 1) {
                 player1 = new HumanPlayer();
                 player2 = new AiPlayer();
@@ -44,17 +43,11 @@ public class Game {
                 player2 = new AiPlayer();
                 break;
             }
-            System.out.println("Your input is incorrect. Please enter '0', '1' or '2'.");
         }
         player1.mark = Mark.X;
         player1.name = "Player 1";
         player2.mark = Mark.O;
         player2.name = "Player 2";
-    }
-    
-    private Integer getPlayerInt() {
-        System.out.println("Hello! Lets start a game. How many players will play? Press '0', '1' or '2'.");
-        return scanner.nextInt();
     }
 
     private Player switchPlayer(Player currentPlayer, Player player2) {

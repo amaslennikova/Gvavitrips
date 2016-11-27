@@ -5,7 +5,6 @@ public class HumanPlayer extends Player{
 
     @Override
     public boolean makeTurn(Board board, Player player) {
-        System.out.println(player.name + " please make your turn. Enter a number of cell to place your mark.");
         int cell = 0;
         int line = 0;
         boolean isTurnMade = false;

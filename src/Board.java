@@ -15,6 +15,10 @@ public class Board {
         }
     }
     
+    public Mark[][] getBoard() {
+        return board;
+    }
+    
     public void printBoard() {
         System.out.println(" ");
         for (int line = 0; line < (MAX_LINE + 1); line++) {
