@@ -18,7 +18,7 @@ public class AiPlayer extends Player{
         }
         System.out.println(" ");
         System.out.println(player.name + " placed his mark to the collumn Nr." + cell);
-        board.getBoard();
+        board.printBoard();
         return board.checkIfWins(mark, cell, line);
     }
 }

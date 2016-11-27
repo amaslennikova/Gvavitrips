@@ -24,7 +24,7 @@ public class HumanPlayer extends Player{
             }
         } 
         System.out.println(player.name + " placed his mark to cell Nr." + cell);
-        board.getBoard();
+        board.printBoard();
         return board.checkIfWins(mark, cell, line);
     }
 }

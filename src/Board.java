@@ -6,7 +6,7 @@ public class Board {
     private static final int MIN_CELL = 0;
     private static final int MAX_CELL = 6;
 
-    public void setBoard() {
+    public Board() {
         board = new Mark[MAX_LINE + 1][MAX_CELL + 1];
         for (int line = 0; line < (MAX_LINE + 1); line++) {
             for (int cell = 0; cell < (MAX_CELL + 1); cell++) {
@@ -15,7 +15,7 @@ public class Board {
         }
     }
     
-    public void getBoard() {
+    public void printBoard() {
         System.out.println(" ");
         for (int line = 0; line < (MAX_LINE + 1); line++) {
             System.out.print((MAX_LINE - line) + " | ");
@@ -153,9 +153,6 @@ public class Board {
     private boolean checkIfFieldInBoard (int cell, int line) {
         boolean cellIsInRange = (cell <= MAX_CELL && cell >= MIN_CELL);
         boolean lineIsInRange = (line <= MAX_LINE && line >= MIN_LINE);
-        if(cellIsInRange && lineIsInRange) {
-            return true;
-        }
-        return false;
+        return cellIsInRange && lineIsInRange;
     }
 }
